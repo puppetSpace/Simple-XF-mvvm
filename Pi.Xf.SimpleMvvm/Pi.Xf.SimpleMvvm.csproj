@@ -6,7 +6,7 @@
     <RepositoryUrl>https://github.com/puppetSpace/Simple-XF-mvvm</RepositoryUrl>
     <PackageTags>mvvm xamarin.forms</PackageTags>
     <PackageProjectUrl>https://github.com/puppetSpace/Simple-XF-mvvm</PackageProjectUrl>
-    <PackageLicenseUrl>LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/puppetSpace/Simple-XF-mvvm/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
