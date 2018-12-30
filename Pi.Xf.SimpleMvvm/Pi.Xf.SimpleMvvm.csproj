@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Simple mvvm framework for Xamarin forms</Description>
+    <RepositoryUrl>https://github.com/puppetSpace/Simple-XF-mvvm</RepositoryUrl>
+    <PackageTags>mvvm xamarin.forms</PackageTags>
+    <PackageProjectUrl>https://github.com/puppetSpace/Simple-XF-mvvm</PackageProjectUrl>
+    <PackageLicenseUrl>LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
