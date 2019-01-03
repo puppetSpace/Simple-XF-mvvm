@@ -12,8 +12,9 @@ namespace Pi.Xf.SimpleMvvm
         private static readonly Lazy<Navigator> _navigatorInstance = new Lazy<Navigator>(() => new Navigator());
         private readonly Dictionary<string, Type> _pagesByKey = new Dictionary<string, Type>();
 
-
-        private Navigator() { }
+        private Navigator()
+        {
+        }
 
         public static Navigator Instance => _navigatorInstance.Value;
 
@@ -46,6 +47,12 @@ namespace Pi.Xf.SimpleMvvm
         /// <returns>task</returns>
         internal async Task NavigateTo(string pageKey, object data, bool animated)
         {
+            var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+            if(currentPage != null && currentPage.BindingContext is INavigationNotification currNav)
+            {
+                await currNav.OnNavigatingTo().ConfigureAwait(false);
+            }
+
             Page instance;
             lock (_pagesByKey)
             {
@@ -53,7 +60,6 @@ namespace Pi.Xf.SimpleMvvm
                     throw new InvalidOperationException($"No such Page: {pageKey}. Did you forgot to call Navigator.Instance.Configure");
 
                 instance = (Page)Activator.CreateInstance(_pagesByKey[pageKey]);
-
             }
             await Application.Current.MainPage.Navigation.PushAsync(instance, animated).ConfigureAwait(false);
 
@@ -71,16 +77,11 @@ namespace Pi.Xf.SimpleMvvm
         /// <returns>task</returns>
         internal async Task NavigateBack(object data,bool animated)
         {
-            var previousPage = await Application.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
-
-            if (previousPage != null && previousPage.BindingContext is INavigationNotification prevNav)
+            await Application.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
+            var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+            if (currentPage != null && currentPage.BindingContext is INavigationNotification currNav)
             {
-                var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-
-                if (currentPage != null && currentPage.BindingContext is INavigationNotification currNav)
-                {
-                    await currNav.OnNavigatedBack(data).ConfigureAwait(false);
-                }
+                await currNav.OnNavigatedBack(data).ConfigureAwait(false);
             }
         }
 

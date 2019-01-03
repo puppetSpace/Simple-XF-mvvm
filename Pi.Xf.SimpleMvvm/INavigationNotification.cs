@@ -7,6 +7,8 @@ namespace Pi.Xf.SimpleMvvm
     {
         Task OnNavigatedFrom(object param);
 
+        Task OnNavigatingTo();
+
         Task OnNavigatedBack(object param);
 
     }

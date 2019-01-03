@@ -25,6 +25,11 @@ namespace Pi.Xf.SimpleMvvm
             return Task.CompletedTask;
         }
 
+        public virtual Task OnNavigatingTo()
+        {
+            return Task.CompletedTask;
+        }
+
         /// <summary>
         /// Set a value and notify the change
         /// </summary>
