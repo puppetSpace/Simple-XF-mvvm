@@ -5,6 +5,8 @@ namespace Pi.Xf.SimpleMvvm
 {
     internal interface INavigationNotification
     {
+        object State { get; set; }
+
         Task OnNavigatedFrom(object param);
 
         Task OnNavigatingTo();

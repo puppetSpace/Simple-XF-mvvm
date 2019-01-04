@@ -47,26 +47,20 @@ namespace Pi.Xf.SimpleMvvm
         /// <returns>task</returns>
         internal async Task NavigateTo(string pageKey, object data, bool animated)
         {
-            var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-            if(currentPage != null && currentPage.BindingContext is INavigationNotification currNav)
-            {
-                await currNav.OnNavigatingTo().ConfigureAwait(false);
-            }
-
             Page instance;
             lock (_pagesByKey)
             {
                 if (!_pagesByKey.ContainsKey(pageKey))
-                    throw new InvalidOperationException($"No such Page: {pageKey}. Did you forgot to call Navigator.Instance.Configure");
+                    throw new InvalidOperationException($"No such Page: {pageKey}. Did you forgot to call Navigator.Instance.Configure?");
 
                 instance = (Page)Activator.CreateInstance(_pagesByKey[pageKey]);
+
+                if (instance.BindingContext is INavigationNotification nav)
+                {
+                    nav.State = data;
+                }
             }
             await Application.Current.MainPage.Navigation.PushAsync(instance, animated).ConfigureAwait(false);
-
-            if (instance.BindingContext is INavigationNotification nav)
-            {
-                await nav.OnNavigatedFrom(data).ConfigureAwait(false);
-            }
 
         }
 
@@ -78,10 +72,11 @@ namespace Pi.Xf.SimpleMvvm
         internal async Task NavigateBack(object data,bool animated)
         {
             await Application.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
-            var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-            if (currentPage != null && currentPage.BindingContext is INavigationNotification currNav)
+
+            var page = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+            if (page.BindingContext is INavigationNotification nav)
             {
-                await currNav.OnNavigatedBack(data).ConfigureAwait(false);
+                nav.State = data;
             }
         }
 
