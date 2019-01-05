@@ -33,6 +33,11 @@ namespace Pi.Xf.SimpleMvvm
         {
             _executeAction?.Invoke();
         }
+
+        public void CallCanExecute()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public sealed class SimpleRelayCommand<TE> : ICommand
@@ -60,6 +65,11 @@ namespace Pi.Xf.SimpleMvvm
         public void Execute(object parameter)
         {
             _executeAction?.Invoke((TE)parameter);
+        }
+
+        public void CallCanExecute()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

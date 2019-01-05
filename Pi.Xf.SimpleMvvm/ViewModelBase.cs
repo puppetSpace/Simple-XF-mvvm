@@ -20,12 +20,12 @@ namespace Pi.Xf.SimpleMvvm
             return Task.CompletedTask;
         }
 
-        public virtual Task OnNavigatedBack(object param)
+        public virtual Task OnNavigatingTo()
         {
             return Task.CompletedTask;
         }
 
-        public virtual Task OnNavigatingTo()
+        public virtual Task OnNavigatedBack(object param)
         {
             return Task.CompletedTask;
         }
