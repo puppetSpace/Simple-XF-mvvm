@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace Pi.Xf.SimpleMvvm
 {
-    public class PiNavigationPage : NavigationPage
+    public class NavigationPage : Xamarin.Forms.NavigationPage
     {
-        public PiNavigationPage(ContentPage content) : base(content)
+        public NavigationPage(ContentPage content) : base(content)
         {
 
             Popped += PagePopped;

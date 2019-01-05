@@ -34,6 +34,21 @@ You can also pass in an object you want to use in the navigated page's viewmodel
 **NavigateBack** is used to navigate to the previous page. Here you can also pass back an object as argument.
 
 ### Navigating notification
+
+To receive notification of navigation, you have to use the **PiNavigationPage**. This navigationpage inherits from the
+Xamarin.Forms navigation and has handlers on the Pushed and Popped event.
+
+```
+public App()
+{
+	InitializeComponent();
+
+	...
+	
+	MainPage = new Pi.Xf.SimpleMvvm.NavigationPage(new MainPage());
+}
+```
+
 **ViewModelBase** has 3 overridable methods that gets called when a page is pushed on or popped off the navigationstack
 
 * **OnNavigatedFrom(object param)**: Gets called on the page's viewmodel that's been pushed on the stack. 
@@ -47,14 +62,14 @@ The argument is the object you pass when calling **NavigateBack**.
 in the viewmodel.
 
 e.g.
-````
+```
 private string _title;
 public string Title
 {
 	get{return _title;}
 	set{Set(ref _title,value);}
 }
-````
+```
 **Set()** will check if the equality between the old and new value. If they are not the same, the old value gets 
 overriden with the new value and the PropertyChangedEvent is called.
 
