@@ -71,13 +71,18 @@ namespace Pi.Xf.SimpleMvvm
         /// <returns>task</returns>
         internal async Task NavigateBack(object data,bool animated)
         {
-            await Application.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
-
-            var page = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-            if (page.BindingContext is INavigationNotification nav)
+            var indexOfPreviousPage = Application.Current.MainPage.Navigation.NavigationStack.Count - 2;
+            if (indexOfPreviousPage >= 0)
             {
-                nav.State = data;
+                var previousPage = Application.Current.MainPage.Navigation.NavigationStack[indexOfPreviousPage];
+                if (previousPage != null && previousPage.BindingContext is INavigationNotification pnav)
+                {
+                    pnav.State = data;
+                }
             }
+
+
+            await Application.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
         }
 
 

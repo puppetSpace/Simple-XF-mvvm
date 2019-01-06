@@ -34,7 +34,7 @@ namespace Pi.Xf.SimpleMvvm
 
         private void PagePushed(object sender, NavigationEventArgs e)
         {
-            var indexOfPreviousPage = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
+            var indexOfPreviousPage = Application.Current.MainPage.Navigation.NavigationStack.Count - 2;
             if (indexOfPreviousPage >= 0)
             {
                 var previousPage = Application.Current.MainPage.Navigation.NavigationStack[indexOfPreviousPage];

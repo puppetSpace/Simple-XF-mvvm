@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pi.Xf.TestApp.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +11,10 @@ namespace Pi.Xf.TestApp
         public App()
         {
             InitializeComponent();
+            SimpleMvvm.Navigator.Instance.Configure(nameof(MainPage), typeof(MainPage));
+            SimpleMvvm.Navigator.Instance.Configure(nameof(SecondPage), typeof(SecondPage));
 
-            MainPage = new MainPage();
+            MainPage = new Pi.Xf.SimpleMvvm.NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Pi.Xf.TestApp
+namespace Pi.Xf.TestApp.Views
 {
     public partial class MainPage : ContentPage
     {

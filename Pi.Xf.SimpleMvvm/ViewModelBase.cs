@@ -92,17 +92,17 @@ namespace Pi.Xf.SimpleMvvm
         /// <returns>task</returns>
         protected async Task NavigateBack()
         {
-            await NavigateBack(animated: false);
+            await NavigateBack(null);
         }
 
         /// <summary>
         /// Navigates back to the previous page with option for animation
         /// </summary>
-        /// <param name="animated">animate the navigation</param>
+        /// <param name="data">data to return to previous page</param>
         /// <returns>task</returns>
-        protected async Task NavigateBack(bool animated)
+        protected async Task NavigateBack(object data)
         {
-            await NavigateBack(null, animated);
+            await NavigateBack(data, false);
         }
 
         /// <summary>
