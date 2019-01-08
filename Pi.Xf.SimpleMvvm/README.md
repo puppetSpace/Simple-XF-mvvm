@@ -1,3 +1,4 @@
+[![Build Status](https://sebastianschoof.visualstudio.com/SimpleMvvm/_apis/build/status/SimpleMvvm-CI?branchName=master)](https://sebastianschoof.visualstudio.com/SimpleMvvm/_build/latest?definitionId=1?branchName=master)
 # Simple-XF-mvvm
 Simple-XF-mvvm is, as the name states, a simple mvvm framework for Xamarin.Forms. 
 The project depends on Xamarin.Forms so it can only be used with Xamarin.Forms.
