@@ -62,7 +62,7 @@ The argument is the object you pass when calling **NavigateBack**.
 **ViewModelBase** inherits from **ObservableObject** which has a method **`Set<T>()`**. This method is used to notify propertychanges on your bindable properties
 in the viewmodel.
 
-****ObservableObject** can be inherited if you want to notify property changes without having to implement INotifyPropertyChanged yourself.
+**ObservableObject** can be inherited if you want to notify property changes without having to implement INotifyPropertyChanged yourself.
 
 e.g.
 ```

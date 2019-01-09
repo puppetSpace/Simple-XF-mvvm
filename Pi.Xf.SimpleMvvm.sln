@@ -11,7 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pi.Xf.TestApp.iOS", "Pi.Xf.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pi.Xf.TestApp.UWP", "Pi.Xf.TestApp\Pi.Xf.TestApp.UWP\Pi.Xf.TestApp.UWP.csproj", "{EB2ED9B9-CEE5-4785-9A3C-3514BACD9D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pi.Xf.TestApp", "Pi.Xf.TestApp\Pi.Xf.TestApp\Pi.Xf.TestApp.csproj", "{0DEE7922-E112-4E53-9E7D-3D7C525C1C5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pi.Xf.TestApp", "Pi.Xf.TestApp\Pi.Xf.TestApp\Pi.Xf.TestApp.csproj", "{0DEE7922-E112-4E53-9E7D-3D7C525C1C5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{426BD3F8-56F5-49BB-B232-D7F0FA58E406}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
