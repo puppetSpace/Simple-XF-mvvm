@@ -78,3 +78,4 @@ overriden with the new value and the PropertyChangedEvent is called.
 
 The **[CalledMemberName]** attribute is used in **Set()** to retrieve the name of the property who's value has changed.
 
+
