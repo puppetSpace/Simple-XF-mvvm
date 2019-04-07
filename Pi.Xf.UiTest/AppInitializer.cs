@@ -13,6 +13,7 @@ namespace Pi.Xf.UiTest
                 return ConfigureApp
                     .Android
                     .ApkFile("../../../Pi.Xf.AppTest/Pi.Xf.AppTest.Android/bin/Release/com.companyname.Pi.Xf.AppTest.apk")
+					.Debug()
                     .StartApp();
             }
 

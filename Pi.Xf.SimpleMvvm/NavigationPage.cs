@@ -52,7 +52,8 @@ namespace Pi.Xf.SimpleMvvm
 
         private void PagePopped(object sender, NavigationEventArgs e)
         {
-            if (e.Page.BindingContext is INavigationNotification nav)
+			var nav = e.Page.BindingContext as INavigationNotification;
+			if (nav != null)
             {
                 nav.OnNavigatingTo();
             }
@@ -61,7 +62,7 @@ namespace Pi.Xf.SimpleMvvm
 
             if (currentPage != null && currentPage.BindingContext is INavigationNotification curNav)
             {
-                curNav.OnNavigatedBack(curNav.State);
+                curNav.OnNavigatedBack(nav?.State);
             }
         }
     }

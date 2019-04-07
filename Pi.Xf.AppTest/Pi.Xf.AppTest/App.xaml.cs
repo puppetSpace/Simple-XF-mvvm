@@ -13,8 +13,12 @@ namespace Pi.Xf.AppTest
             InitializeComponent();
 
 
-            MainPage = new AppShell();
-        }
+			MainPage = new MainPage();
+
+			Pi.Xf.SimpleMvvm.Navigator.Instance.Configure(nameof(MainPage), typeof(MainPage));
+			Pi.Xf.SimpleMvvm.Navigator.Instance.Configure(nameof(FirstPage), typeof(FirstPage));
+			Pi.Xf.SimpleMvvm.Navigator.Instance.Configure(nameof(SecondPage), typeof(SecondPage));
+		}
 
         protected override void OnStart()
         {

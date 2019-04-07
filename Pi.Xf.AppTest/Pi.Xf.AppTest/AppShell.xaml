@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+<pi:Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:Pi.Xf.AppTest.Views"
+       xmlns:pi="clr-namespace:Pi.Xf.SimpleMvvm;assembly=Pi.Xf.SimpleMvvm"
        RouteHost="companyname.com"
        RouteScheme="app"
        Route="Pi.Xf.AppTest"
@@ -70,42 +71,9 @@
 
     <!-- Your Pages -->
     <ShellItem>
-        <ShellSection Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </ShellSection>
         <ShellSection Title="About" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:SecondPage}" />
         </ShellSection>
     </ShellItem>
 
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeader>
-		<DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-	</Shell.FlyoutHeader>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
-
-</Shell>
+</pi:Shell>
